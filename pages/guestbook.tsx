@@ -7,8 +7,9 @@ export default function GuestbookPage() {
 				<title>guestbook | Haku</title>
 			</Head>
 			<section>
-				<h1>Guestbook</h1>
-				<p>comments...</p>
+				<h1 className="py-12 text-4xl leading-loose">Guestbook</h1>
+				<p className="mb-8">🚧🚧🚧</p>
+				<p>waiting for comments...</p>
 			</section>
 		</>
 	);

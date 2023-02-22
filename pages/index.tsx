@@ -12,7 +12,7 @@ export async function getStaticProps() {
 function PostCard(post: Post) {
 	return (
 		<div>
-			<h2>
+			<h2 className="text-2xl">
 				<Link href={post.url} legacyBehavior>
 					{post.title}
 				</Link>
@@ -31,7 +31,7 @@ function PostCard(post: Post) {
 export default function PostPage({ posts }: { posts: Post[] }) {
 	return (
 		<section>
-			<h1>Blog</h1>
+			<h1 className="py-12 text-4xl leading-loose">Blog</h1>
 			<div className="space-y-6">
 				{posts.map((post, idx) => (
 					<PostCard key={idx} {...post} />

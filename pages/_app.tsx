@@ -12,7 +12,7 @@ export default function MyApp({ Component, pageProps }) {
 				<link rel="icon" type="image/x-icon" href="/favicon.png" />
 			</Head>
 			<ThemeProvider attribute="class">
-				<div className="text-justify font-serif mx-auto p-4 justify-center flex flex-col gap-y-4 sm:gap-x-4 sm:flex-row">
+				<div className="font-serif mx-auto p-4 justify-center flex flex-col gap-y-4 sm:gap-x-4 sm:flex-row">
 					<Siderbar />
 					<main className="flex-grow sm:max-w-lg">
 						<Component {...pageProps} />

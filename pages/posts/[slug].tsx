@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { format, parseISO } from "date-fns";
-import { allPosts, Post } from "contentlayer/generated";
+import { allPosts, type Post } from "contentlayer/generated";
+import { MDXContent } from "components/MDX";
 
 export async function getStaticPaths() {
 	const paths: string[] = allPosts.map((post) => post.url);
@@ -11,14 +12,17 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-	const post: Post = allPosts.find(
-		(post) => post._raw.flattenedPath === params.slug
+	const post: unknown = allPosts.find(
+		(post) => post._raw.flattenedPath === `posts/${params.slug}`
 	);
-	return {
-		props: {
-			post,
-		},
-	};
+	if (post) {
+		return {
+			props: {
+				post,
+			},
+		};
+	}
+	throw new Error("cannot find post.");
 }
 
 const PostLayout = ({ post }: { post: Post }) => {
@@ -27,15 +31,17 @@ const PostLayout = ({ post }: { post: Post }) => {
 			<Head>
 				<title>{post.title}</title>
 			</Head>
-			<article>
-				<div className="mb-8">
-					<h1>{post.title}</h1>
+			<section className="space-y-8">
+				<div>
+					<h1 className="py-12 text-4xl leading-loose">{post.title}</h1>
 					<time dateTime={post.date}>
 						{format(parseISO(post.date), "LLLL d, yyyy")}
 					</time>
 				</div>
-				<div dangerouslySetInnerHTML={{ __html: post.body.html }} />
-			</article>
+				<div className="prose prose-quoteless prose-gray dark:prose-invert">
+					<MDXContent code={post.body.code} />
+				</div>
+			</section>
 		</>
 	);
 };
