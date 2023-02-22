@@ -7,3 +7,4 @@ TBD:
 - deploy guestbook.
 - feature views counter.
 - connect to my social media. (instagram, tweeter, mastodon...)
+- update to next.js 13 app

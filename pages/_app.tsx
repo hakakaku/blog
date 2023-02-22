@@ -19,7 +19,6 @@ export default function MyApp({ Component, pageProps }) {
 					</main>
 				</div>
 			</ThemeProvider>
-			;
 		</>
 	);
 }

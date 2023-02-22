@@ -9,6 +9,20 @@ module.exports = {
 	],
 	darkMode: "class",
 	theme: {
+		fontFamily: {
+			serif: [
+				"ui-serif",
+				"Georgia",
+				'"Times New Roman"',
+				"游明朝",
+				"YuMincho",
+				'"ヒラギノ明朝 ProN W3"',
+				'"Hiragino Mincho ProN"',
+				'"メイリオ"',
+				"Meiryo",
+				"serif",
+			],
+		},
 		extend: {},
 	},
 	plugins: [
