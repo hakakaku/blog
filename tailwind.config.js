@@ -11,15 +11,13 @@ module.exports = {
 	theme: {
 		fontFamily: {
 			serif: [
-				"ui-serif",
 				"Georgia",
 				'"Times New Roman"',
 				"游明朝",
 				"YuMincho",
+				"Yu Mincho",
 				'"ヒラギノ明朝 ProN W3"',
 				'"Hiragino Mincho ProN"',
-				'"メイリオ"',
-				"Meiryo",
 				"serif",
 			],
 		},
