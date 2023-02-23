@@ -3,9 +3,11 @@ import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 
 export async function getStaticProps() {
-	const posts: Post[] = allPosts.sort((a, b) => {
-		return compareDesc(new Date(a.date), new Date(b.date));
-	});
+	const posts: Post[] = allPosts
+		.filter((post) => !post.draft)
+		.sort((a, b) => {
+			return compareDesc(new Date(a.date), new Date(b.date));
+		});
 	return { props: { posts } };
 }
 

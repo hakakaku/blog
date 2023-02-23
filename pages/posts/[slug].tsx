@@ -11,6 +11,7 @@ export async function getStaticPaths() {
 	};
 }
 
+// TODO: if post is a draft, redirect to 404 page.
 export async function getStaticProps({ params }) {
 	const post: unknown = allPosts.find(
 		(post) => post._raw.flattenedPath === `posts/${params.slug}`
