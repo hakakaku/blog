@@ -5,7 +5,7 @@ function ThemeToggle() {
 
 	return (
 		<select
-			className="w-16 bg-white dark:bg-black rounded-none"
+			className="w-16 bg-white dark:bg-black rounded-none cursor-pointer"
 			value={theme}
 			onChange={(e) => setTheme(e.target.value)}
 		>

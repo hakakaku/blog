@@ -31,6 +31,46 @@ module.exports = {
 					},
 				},
 			},
+			textShadow: {
+				sm: "0 0 2px var(--tw-shadow-color)",
+				DEFAULT: "0 0 12px var(--tw-shadow-color)",
+				lg: "0 0 20px var(--tw-shadow-color)",
+			},
+			animation: {
+				"text-shadow-drop-center": "text-shadow-drop-center 0.6s ease   both",
+				"text-shadow-drop-center-dark":
+					"text-shadow-drop-center-dark 0.6s ease   both",
+				"text-focus-in":
+					"text-focus-in 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both",
+			},
+			keyframes: {
+				"text-shadow-drop-center": {
+					"0%": {
+						"text-shadow": "0 0 0 transparent",
+					},
+					to: {
+						"text-shadow": "0 0 20px var(--tw-shadow-color)",
+					},
+				},
+				"text-shadow-drop-center-dark": {
+					"0%": {
+						"text-shadow": "0 0 0 transparent",
+					},
+					to: {
+						"text-shadow": "0 0 20px var(--tw-shadow-color)",
+					},
+				},
+				"text-focus-in": {
+					"0%": {
+						filter: "blur(12px)",
+						opacity: "0",
+					},
+					to: {
+						filter: "blur(0)",
+						opacity: "1",
+					},
+				},
+			},
 		},
 	},
 	future: {
@@ -48,6 +88,16 @@ module.exports = {
 					paddingBottom: "0.5rem",
 				},
 			});
+		}),
+		plugin(function ({ matchUtilities, theme }) {
+			matchUtilities(
+				{
+					"text-shadow": (value) => ({
+						textShadow: value,
+					}),
+				},
+				{ values: theme("textShadow") }
+			);
 		}),
 	],
 };

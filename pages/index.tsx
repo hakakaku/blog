@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
+import StyledLink from "components/StyledLink";
 
 export async function getStaticProps() {
 	const posts: Post[] = allPosts
@@ -15,9 +15,7 @@ function PostCard(post: Post) {
 	return (
 		<div>
 			<h2 className="text-2xl">
-				<Link href={post.url} legacyBehavior>
-					{post.title}
-				</Link>
+				<StyledLink href={post.url}>{post.title}</StyledLink>
 			</h2>
 			<time dateTime={post.date} className="block">
 				{format(parseISO(post.date), "LLLL d, yyyy")}
